@@ -58,7 +58,7 @@ namespace Becomex.Robot.Test
         {
             //arrange
             Domain.Entities.Robot robot = new Domain.Entities.Robot();
-            robot.Head.ActionRotation = 3;
+            robot.Head.ActionRotation = 5;
 
             //Act
             Func<Task> act = () => _robot.MoveHeadAsync(robot);
@@ -212,7 +212,7 @@ namespace Becomex.Robot.Test
             //arrange
             Domain.Entities.Robot robot = new Domain.Entities.Robot();
             robot.RightArm.Action = 1;
-            robot.RightArm.Fist.Action = 3;
+            robot.RightArm.Fist.Action = 5;
             robot.RightArm.Ancon.AnconState = EnumsRobot.EnumAncon.StronglyContracted;
 
             //Act
@@ -231,7 +231,7 @@ namespace Becomex.Robot.Test
             //arrange
             Domain.Entities.Robot robot = new Domain.Entities.Robot();
             robot.LeftArm.Action = 1;
-            robot.LeftArm.Fist.Action = 3;
+            robot.LeftArm.Fist.Action = 5;
             robot.LeftArm.Ancon.AnconState = EnumsRobot.EnumAncon.StronglyContracted;
 
             //Act
