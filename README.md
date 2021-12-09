@@ -19,5 +19,11 @@ PUT /api/v1/robots/movehead
 PUT /api/v1/robots/moveancon
 PUT /api/v1/robots/movefist
 
+* `GET /api/v1/robots`
+* `PUT /api/v1/robots/initialize`
+* `PUT /api/v1/robots/movehead`
+* `PUT /api/v1/robots/moveancon`
+* `PUT /api/v1/robots/movefist`
+
 ### Importante
 Aplicação desenvolvida em .NET Core 3.1.
