@@ -1,0 +1,107 @@
+﻿@model Becomex.Robot.Web.Models.RobotViewModel
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<script>
+     var urlRobot = "@Html.Raw(ViewBag.UrlGetRobot)";
+</script>
+
+<style>
+    .marginBottom {
+        margin-bottom: 1px;
+    }
+</style>
+
+<div>
+    <h1>BECOMEX ROBO</h1>
+
+    <div class="row">
+        <div class="col-md-2">
+            Rotação da Cabeça:
+        </div>
+        <div class="col-md-2">
+            Inclinação da Cabeça:
+        </div>
+        <div class="col-md-2">
+            Cotovelo esquerdo:
+        </div>
+        <div class="col-md-2">
+            Cotovelo direito:
+        </div>
+        <div class="col-md-2">
+            Punho esquerdo:
+        </div>
+        <div class="col-md-2">
+            Punho direito:
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button id="btnRot-45" type="button" class="btn btn-info marginBottom" onclick="changeRotation(1);">Rotação -90º</button>
+            <button id="btnRot-90" type="button" class="btn btn-info marginBottom" onclick="changeRotation(2);">Rotação -45º</button>
+            <button id="btnRotRepouso" type="button" class="btn btn-info marginBottom" onclick="changeRotation(3);">Em Repouso</button>
+            <button id="btnRot45" type="button" class="btn btn-info marginBottom" onclick="changeRotation(4);">Rotação 45º</button>
+            <button id="btnRot90" type="button" class="btn btn-info marginBottom" onclick="changeRotation(5);">Rotação 90º</button>
+        </div>
+        <div class="col-md-2">
+            <button id="btnInclCima" type="button" class="btn btn-info marginBottom" onclick="changeInclination(1);">Para Cima</button>
+            <button id="btnInclRepouso" type="button" class="btn btn-info marginBottom" onclick="changeInclination(2);">Em Repouso</button>
+            <button id="btnInclBaixo" type="button" class="btn btn-info marginBottom" onclick="changeInclination(3);">Para Baixo</button>
+        </div>
+        <div class="col-md-2">
+            <button id="btnCotEsqRepouso" type="button" class="btn btn-info marginBottom" onclick="changeAncon(2, 1);">Em Repouso</button>
+            <button id="btnCotEsqLevementeContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(2, 2);">Lev. Contraído</button>
+            <button id="btnCotEsqContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(2, 3);">Contraído</button>
+            <button id="btnCotEsqFortementeContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(2, 4);">Fort. Contraído</button>
+        </div>
+        <div class="col-md-2">
+            <button id="btnCotDirRepouso" type="button" class="btn btn-info marginBottom" onclick="changeAncon(1, 1);">Em Repouso</button>
+            <button id="btnCotDirLevementeContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(1, 2);">Lev. Contraído</button>
+            <button id="btnCotDirContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(1, 3);">Contraído</button>
+            <button id="btnCotDirFortementeContraido" type="button" class="btn btn-info marginBottom" onclick="changeAncon(1, 4);">Fort. Contraído</button>
+        </div>
+        <div class="col-md-2">
+            <button id="btnPunEsq-90" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 1);">Rotação -90º</button>
+            <button id="btnPunEsq-45" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 2);">Rotação -45º</button>
+            <button id="btnPunEsqRepouso" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 3);">Em Repouso</button>
+            <button id="btnPunEsq45" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 4);">Rotação 45º</button>
+            <button id="btnPunEsq90" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 5);">Rotação 90º</button>
+            <button id="btnPunEsq135" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 6);">Rotação 135º</button>
+            <button id="btnPunEsq180" type="button" class="btn btn-info marginBottom" onclick="changeFist(2, 7);">Rotação 180º</button>
+        </div>
+        <div class="col-md-2">
+            <button id="btnPunDir-90" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 1);">Rotação -90º</button>
+            <button id="btnPunDir-45" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 2);">Rotação -45º</button>
+            <button id="btnPunDirRepouso" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 3);">Em Repouso</button>
+            <button id="btnPunDir45" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 4);">Rotação 45º</button>
+            <button id="btnPunDir90" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 5);">Rotação 90º</button>
+            <button id="btnPunDir135" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 6);">Rotação 135º</button>
+            <button id="btnPunDir180" type="button" class="btn btn-info marginBottom" onclick="changeFist(1, 7);">Rotação 180º</button>
+        </div>
+    </div>
+    <h5>Resultado</h5>
+    <div class="row">
+        <div class="col-md-2">
+            <label id="rotacaoCabeca"></label>
+        </div>
+        <div class="col-md-2">
+            <label id="inclinacaoCabeca"></label>
+        </div>
+        <div class="col-md-2">
+            <label id="cotoveloEsquerdo"></label>
+        </div>
+        <div class="col-md-2">
+            <label id="cotoveloDireito"></label>
+        </div>
+        <div class="col-md-2">
+            <label id="punhoEsquerdo"></label>
+        </div>
+        <div class="col-md-2">
+            <label id="punhoDireito"></label>
+        </div>
+    </div>
+</div>
