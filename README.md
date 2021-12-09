@@ -7,8 +7,12 @@ Realizar o clone de todos os repositórios em sua maquina, buildar os projetos d
 
 O projeto conta com somente uma tela de apresentação do ROBO, nessa interface é possivel manipular as ações.
 
+## Atenção
+
+Caso haja algum erro de IIS Express na API, altere a porta da aplicação no debug. E também altere a porta no appsettings do projeto WEB, para que reflita a mesma porta colocada na API.
 
 ### Observações
+
 A solution se encontra dentro da pasta "Becomex.Robot";
 
 ### Endpoints
@@ -20,4 +24,5 @@ A solution se encontra dentro da pasta "Becomex.Robot";
 * `PUT /api/v1/robots/movefist`
 
 ### Importante
+
 Aplicação desenvolvida em .NET Core 3.1.
