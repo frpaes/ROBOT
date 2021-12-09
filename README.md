@@ -13,12 +13,6 @@ A solution se encontra dentro da pasta "Becomex.Robot";
 
 ### Endpoints
 
-GET /api/v1/robots
-PUT /api/v1/robots/initialize
-PUT /api/v1/robots/movehead
-PUT /api/v1/robots/moveancon
-PUT /api/v1/robots/movefist
-
 * `GET /api/v1/robots`
 * `PUT /api/v1/robots/initialize`
 * `PUT /api/v1/robots/movehead`
